@@ -1,0 +1,18 @@
+{
+  "name": "aws-bootstrap",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./node_modules/pm2/bin/pm2 start ./server.js --name hello_aws --log .npm./logs/app.log",
+    "stop": "node ./node_modules/pm2/bin/pm2 stop hello_aws",
+    "build": "echo 'Building...'"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node": "^15.8.0",
+    "pm2": "^4.2.0"
+  }
+}
