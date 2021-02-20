@@ -1,5 +1,8 @@
 #!/bin/bash
-STACK_NAME=awsbootstrap ❶
+if [ -n "$1" ]; then
+  TAGS="Owner=$1"
+fi
+STACK_NAME=awsbootstrap
 REGION=eu-west-1
 CLI_PROFILE=awsbootstrap
 EC2_INSTANCE_TYPE=t2.micro
@@ -12,6 +15,7 @@ aws cloudformation deploy \
   --template-file main.yml \
   --no-fail-on-empty-changeset \
   --capabilities CAPABILITY_NAMED_IAM \
+  --tags $TAGS \
   --parameter-overrides \
   EC2InstanceType=$EC2_INSTANCE_TYPE
 
