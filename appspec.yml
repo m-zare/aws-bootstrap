@@ -14,10 +14,10 @@ hooks:
   ApplicationStart:
     # start the application
     - location: start-service.sh
-    timeout: 300
-    runas: ec2-user
+      timeout: 300
+      runas: ec2-user
   ApplicationStop:
     # stop the application
     - location: stop-service.sh
-    timeout: 300
-    runas: ec2-user
+      timeout: 300
+      runas: ec2-user
