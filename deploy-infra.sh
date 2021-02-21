@@ -55,5 +55,5 @@ aws cloudformation deploy \
 if [ $? -eq 0 ]; then
   aws cloudformation list-exports \
     --profile awsbootstrap \
-    --query "Exports[?ends_with(Name,'AWSEndpoint')].Value"
+    --query "Exports[?ends_with(Name,'LBEndpoint')].Value"
 fi
