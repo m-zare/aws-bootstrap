@@ -1,6 +1,9 @@
 #!/bin/bash
 if [ -n "$1" ]; then
   TAGS="Owner=$1"
+else
+  echo "Enter owner."
+  exit
 fi
 STACK_NAME=awsbootstrap
 REGION=eu-west-1
@@ -52,5 +55,5 @@ aws cloudformation deploy \
 if [ $? -eq 0 ]; then
   aws cloudformation list-exports \
     --profile awsbootstrap \
-    --query "Exports[?starts_with(Name,'InstanceEndpoint')].Value"
+    --query "Exports[?ends_with(Name,'AWSEndpoint')].Value"
 fi
